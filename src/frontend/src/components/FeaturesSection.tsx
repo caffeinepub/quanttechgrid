@@ -24,9 +24,9 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="relative py-24 lg:py-32 border-b border-border">
+    <section className="relative py-28 lg:py-40 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-20">
           <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
             Intelligence Layer
           </span>
@@ -46,21 +46,21 @@ export default function FeaturesSection() {
                 className="group"
               >
                 {/* Icon + number header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 border border-border group-hover:border-primary/40 flex items-center justify-center transition-colors">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-10 h-10 border border-border/50 group-hover:border-primary/40 flex items-center justify-center transition-colors duration-200">
                     <Icon
                       size={18}
-                      className="text-muted-foreground group-hover:text-primary transition-colors"
+                      className="text-muted-foreground group-hover:text-primary transition-colors duration-200"
                       aria-hidden="true"
                     />
                   </div>
-                  <div className="h-px flex-1 bg-border" />
+                  <div className="h-px flex-1 bg-border/50" />
                   <span className="font-mono-data text-xs text-muted-foreground/40 tracking-widest">
                     {feature.label}
                   </span>
                 </div>
 
-                <h3 className="font-display font-semibold text-lg text-foreground mb-3 tracking-tight leading-snug">
+                <h3 className="font-display font-semibold text-lg text-foreground mb-4 tracking-tight leading-snug">
                   {feature.title}
                 </h3>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">

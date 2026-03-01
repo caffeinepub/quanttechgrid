@@ -1,4 +1,4 @@
-import { Package, Scale, Truck } from "lucide-react";
+import { Package, Scale, Sprout, Truck } from "lucide-react";
 import { motion } from "motion/react";
 
 const segments = [
@@ -32,13 +32,23 @@ const segments = [
       "Underwriting intelligence",
     ],
   },
+  {
+    icon: Sprout,
+    title: "Producers",
+    body: "Ensure produce reaches markets in condition that reflects its quality.",
+    attributes: [
+      "Reduced post-harvest losses",
+      "Market-ready quality assurance",
+      "Stronger buyer trust",
+    ],
+  },
 ];
 
 export default function ForWhomSection() {
   return (
     <section
       id="for-whom"
-      className="relative py-24 lg:py-32 border-b border-border"
+      className="relative py-28 lg:py-40 border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
@@ -47,9 +57,9 @@ export default function ForWhomSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
               For Whom
             </span>
@@ -61,7 +71,7 @@ export default function ForWhomSection() {
         </motion.div>
 
         {/* Segments */}
-        <div className="grid lg:grid-cols-3 gap-px bg-border">
+        <div className="grid lg:grid-cols-4 gap-6 lg:gap-8">
           {segments.map((seg, i) => {
             const Icon = seg.icon;
             return (
@@ -71,19 +81,19 @@ export default function ForWhomSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: i * 0.12 }}
-                className="bg-card p-8 lg:p-10 group hover:bg-secondary/40 transition-colors duration-300"
+                className="bg-card border border-border/50 p-8 lg:p-10 group hover:border-border hover:bg-secondary/30 transition-all duration-200"
               >
                 <div className="mb-6">
                   <Icon size={22} className="text-primary" aria-hidden="true" />
                 </div>
-                <h3 className="font-display font-bold text-xl text-foreground mb-2 tracking-tight">
+                <h3 className="font-display font-bold text-xl text-foreground mb-3 tracking-tight">
                   {seg.title}
                 </h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
                   {seg.body}
                 </p>
 
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {seg.attributes.map((attr) => (
                     <li key={attr} className="flex items-start gap-2">
                       <div className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />

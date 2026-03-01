@@ -28,7 +28,7 @@ export default function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="relative py-24 lg:py-32 border-b border-border"
+      className="relative py-28 lg:py-40 border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
@@ -37,9 +37,9 @@ export default function HowItWorksSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
               Process
             </span>
@@ -51,53 +51,36 @@ export default function HowItWorksSection() {
         </motion.div>
 
         {/* Steps */}
-        <div className="relative">
-          {/* Connector line */}
-          <div
-            className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-border"
-            style={{
-              left: "calc(1.25rem + 24px)",
-              right: "calc(1.25rem + 24px)",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="grid lg:grid-cols-3 gap-0 lg:gap-px bg-transparent lg:bg-border">
-            {steps.map((step, i) => (
-              <motion.article
-                key={step.number}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.12 }}
-                className="bg-background lg:bg-card p-0 lg:p-10 relative border-b lg:border-b-0 border-border last:border-b-0"
-              >
-                {/* Mobile layout */}
-                <div className="py-8 lg:py-0 flex gap-6 lg:block">
-                  {/* Step number */}
-                  <div className="shrink-0 lg:mb-8">
-                    <div className="w-8 h-8 border border-primary/40 flex items-center justify-center">
-                      <span className="font-mono-data text-xs text-primary tracking-widest">
-                        {step.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="font-display font-semibold text-base text-foreground mb-2 tracking-tight leading-snug">
-                      {step.title}
-                    </h3>
-                    <p className="font-body text-sm text-foreground/90 leading-relaxed mb-3">
-                      {step.body}
-                    </p>
-                    <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                      {step.detail}
-                    </p>
-                  </div>
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+          {steps.map((step, i) => (
+            <motion.article
+              key={step.number}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.12 }}
+              className="bg-card border border-border/50 p-10 lg:p-12 hover:border-border hover:bg-secondary/30 transition-all duration-200"
+            >
+              {/* Step number */}
+              <div className="mb-8">
+                <div className="w-8 h-8 border border-primary/40 flex items-center justify-center">
+                  <span className="font-mono-data text-xs text-primary tracking-widest">
+                    {step.number}
+                  </span>
                 </div>
-              </motion.article>
-            ))}
-          </div>
+              </div>
+
+              <h3 className="font-display font-semibold text-base text-foreground mb-3 tracking-tight leading-snug">
+                {step.title}
+              </h3>
+              <p className="font-body text-sm text-foreground/90 leading-relaxed mb-4">
+                {step.body}
+              </p>
+              <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                {step.detail}
+              </p>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

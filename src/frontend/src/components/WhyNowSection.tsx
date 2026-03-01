@@ -1,21 +1,22 @@
 import { motion } from "motion/react";
 
 const dataGaps = [
-  "Monitored but not interpreted",
-  "Recorded but not standardized",
-  "Available but not defensible",
+  "Monitored — but not interpreted",
+  "Recorded — but not standardized",
+  "Available — but not legally or commercially defensible",
 ];
 
 const consequences = [
-  "Export disputes",
-  "Insurance friction",
-  "Quality degradation",
-  "Financial leakage",
+  "Product quality degradation",
+  "Export rejections and disputes",
+  "Invisible financial leakage",
+  "Insurance claim friction",
+  "Loss of trust across the value chain",
 ];
 
 export default function WhyNowSection() {
   return (
-    <section className="relative py-24 lg:py-32 border-b border-border overflow-hidden">
+    <section className="relative py-28 lg:py-40 border-b border-border overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
@@ -34,10 +35,10 @@ export default function WhyNowSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center gap-3 mb-6"
         >
           <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
-            Market Context
+            The Accountability Gap
           </span>
           <div className="h-px bg-border w-[60px]" />
         </motion.div>
@@ -48,7 +49,7 @@ export default function WhyNowSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="mb-12"
+          className="mb-10"
         >
           <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-foreground mb-4 leading-tight">
             India's Cold Chain Is Expanding — Accountability Has Not.
@@ -65,27 +66,37 @@ export default function WhyNowSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-body text-base text-muted-foreground leading-relaxed max-w-3xl mb-12"
+          className="font-body text-base text-muted-foreground leading-relaxed max-w-3xl mb-6"
         >
-          India loses a significant portion of perishable produce due to
-          temperature deviations, transit inefficiencies, and lack of
-          standardized exposure interpretation.
+          India loses a significant share of perishable produce — not because
+          data doesn't exist, but because it isn't interpreted, standardized, or
+          made defensible.
         </motion.p>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.13 }}
+          className="font-body text-base text-muted-foreground leading-relaxed max-w-3xl mb-16"
+        >
+          Cold storage and reefer infrastructure are expanding rapidly. Sensors
+          are everywhere. Data is being collected continuously.
+        </motion.p>
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left — data gap */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="border border-border rounded-lg p-8"
+            className="border-l-2 border-primary/30 pl-8 py-2"
           >
             <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-              Cold storage infrastructure is scaling rapidly — but environmental
-              data is often:
+              Yet most environmental data today is:
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {dataGaps.map((item, i) => (
                 <motion.li
                   key={item}
@@ -96,7 +107,7 @@ export default function WhyNowSection() {
                   className="flex items-start gap-3"
                 >
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                  <span className="font-body text-sm text-foreground">
+                  <span className="font-body text-sm text-foreground leading-relaxed">
                     {item}
                   </span>
                 </motion.li>
@@ -110,28 +121,27 @@ export default function WhyNowSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="border border-border rounded-lg p-8"
           >
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-              This gap leads to:
+            <p className="font-body text-sm font-semibold text-foreground leading-relaxed mb-5">
+              The Result
             </p>
-            <ul className="space-y-3">
+            <div className="grid grid-cols-1 gap-3">
               {consequences.map((item, i) => (
-                <motion.li
+                <motion.div
                   key={item}
-                  initial={{ opacity: 0, x: 12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
-                  className="flex items-start gap-3"
+                  transition={{ duration: 0.4, delay: 0.25 + i * 0.07 }}
+                  className="flex items-center gap-3 rounded-lg border border-destructive/25 bg-destructive/5 px-4 py-3"
                 >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-destructive/70 shrink-0" />
-                  <span className="font-body text-sm text-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-destructive/70 shrink-0" />
+                  <span className="font-body text-sm text-foreground leading-snug">
                     {item}
                   </span>
-                </motion.li>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </motion.div>
         </div>
       </div>

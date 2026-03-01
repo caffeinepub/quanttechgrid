@@ -56,7 +56,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-24 lg:py-32 border-b border-border"
+      className="relative py-28 lg:py-40 border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -68,22 +68,22 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
                 Pilot Program
               </span>
               <div className="flex-1 h-px bg-border max-w-[60px]" />
             </div>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-foreground mb-4">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-foreground mb-6">
               Request Structured Pilot
             </h2>
-            <p className="font-body text-base text-muted-foreground leading-relaxed mb-8">
+            <p className="font-body text-base text-muted-foreground leading-relaxed mb-10">
               Submit your request to begin the structured pilot intake process.
               Our team will assess your supply chain context and respond within
               2 business days.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
               {[
                 "Structured onboarding assessment",
                 "Commodity-specific exposure modeling setup",
@@ -92,7 +92,7 @@ export default function ContactSection() {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 bg-primary rounded-none rotate-45 shrink-0 mt-1.5" />
-                  <span className="font-body text-sm text-muted-foreground">
+                  <span className="font-body text-sm text-muted-foreground leading-relaxed">
                     {item}
                   </span>
                 </div>
@@ -108,7 +108,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:col-span-7"
           >
-            <div className="bg-card border border-border p-8 lg:p-10">
+            <div className="bg-card border border-border p-8 lg:p-10 shadow-sm">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.96 }}

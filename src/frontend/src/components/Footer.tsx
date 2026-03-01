@@ -14,8 +14,8 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-14">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
           {/* Brand block */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2 mb-4">

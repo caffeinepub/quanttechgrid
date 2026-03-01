@@ -46,7 +46,7 @@ export default function WhatWeDoSection() {
   return (
     <section
       id="what-we-do"
-      className="relative py-24 lg:py-32 border-b border-border"
+      className="relative py-28 lg:py-40 border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
@@ -55,9 +55,9 @@ export default function WhatWeDoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
               Capabilities
             </span>
@@ -74,7 +74,7 @@ export default function WhatWeDoSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {cards.map((card) => {
             const Icon = card.icon;
@@ -82,7 +82,7 @@ export default function WhatWeDoSection() {
               <motion.article
                 key={card.number}
                 variants={itemVariants}
-                className="bg-card p-8 group hover:bg-secondary/50 transition-colors duration-300"
+                className="bg-card border border-border/50 p-8 group hover:border-border hover:bg-secondary/30 transition-all duration-200"
               >
                 <div className="mb-6 flex items-start justify-between">
                   <Icon
