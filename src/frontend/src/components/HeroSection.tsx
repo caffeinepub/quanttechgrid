@@ -59,7 +59,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight text-foreground mb-6"
           >
-            The Structured Environmental Exposure Layer for Cold-Chain.
+            QuantTechGrid — The Risk Intelligence Layer for India's Cold Chain.
           </motion.h1>
 
           {/* Subheadline */}
@@ -69,9 +69,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg sm:text-xl text-muted-foreground font-body leading-relaxed mb-8 max-w-2xl"
           >
-            QuantTechGrid converts raw temperature telemetry into structured,
-            defensible risk intelligence for exporters, logistics operators, and
-            insurers.
+            We transform environmental exposure data into structured, defensible
+            intelligence — helping reduce post-harvest losses, strengthen export
+            confidence, and improve supply-chain accountability.
           </motion.p>
 
           {/* Supporting Line */}

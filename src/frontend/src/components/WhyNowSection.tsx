@@ -1,21 +1,16 @@
 import { motion } from "motion/react";
 
-const gaps = [
-  {
-    label: "Infrastructure Expansion",
-    detail:
-      "India's cold-chain infrastructure is expanding rapidly at an unprecedented pace.",
-  },
-  {
-    label: "Accountability Gap",
-    detail:
-      "Accountability systems have not scaled at the same pace, creating structural risk.",
-  },
-  {
-    label: "Dispute Friction",
-    detail:
-      "The gap creates dispute friction, insurance leakage, and inconsistent exposure interpretation.",
-  },
+const dataGaps = [
+  "Monitored but not interpreted",
+  "Recorded but not standardized",
+  "Available but not defensible",
+];
+
+const consequences = [
+  "Export disputes",
+  "Insurance friction",
+  "Quality degradation",
+  "Financial leakage",
 ];
 
 export default function WhyNowSection() {
@@ -33,61 +28,110 @@ export default function WhyNowSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left — heading */}
+        {/* Section label */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-3 mb-4"
+        >
+          <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
+            Market Context
+          </span>
+          <div className="h-px bg-border w-[60px]" />
+        </motion.div>
+
+        {/* Main heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="mb-12"
+        >
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-foreground mb-4 leading-tight">
+            India's Cold Chain Is Expanding — Accountability Has Not.
+          </h2>
+          <p className="font-body text-base text-primary font-medium">
+            QuantTechGrid builds the standardized exposure layer to close this
+            gap.
+          </p>
+        </motion.div>
+
+        {/* Body copy */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-body text-base text-muted-foreground leading-relaxed max-w-3xl mb-12"
+        >
+          India loses a significant portion of perishable produce due to
+          temperature deviations, transit inefficiencies, and lack of
+          standardized exposure interpretation.
+        </motion.p>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left — data gap */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="border border-border rounded-lg p-8"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
-                Market Context
-              </span>
-              <div className="flex-1 h-px bg-border max-w-[60px]" />
-            </div>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-foreground mb-8 leading-tight">
-              Why Now
-            </h2>
-            <div className="data-line">
-              <p className="font-body text-base text-foreground leading-relaxed">
-                QuantTechGrid builds the standardized exposure layer to close
-                this gap.
-              </p>
-            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+              Cold storage infrastructure is scaling rapidly — but environmental
+              data is often:
+            </p>
+            <ul className="space-y-3">
+              {dataGaps.map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className="flex items-start gap-3"
+                >
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                  <span className="font-body text-sm text-foreground">
+                    {item}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
 
-          {/* Right — structured gap analysis */}
+          {/* Right — consequences */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="space-y-0"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="border border-border rounded-lg p-8"
           >
-            {gaps.map((gap, i) => (
-              <motion.div
-                key={gap.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * i }}
-                className="border-b border-border py-6 first:border-t first:pt-0 last:border-b-0 last:pb-0 flex gap-6 items-start"
-              >
-                <span className="font-mono-data text-xs text-primary/60 mt-0.5 shrink-0 w-5">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <div className="font-display font-semibold text-sm text-foreground mb-1 tracking-tight">
-                    {gap.label}
-                  </div>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                    {gap.detail}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+              This gap leads to:
+            </p>
+            <ul className="space-y-3">
+              {consequences.map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: 12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
+                  className="flex items-start gap-3"
+                >
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-destructive/70 shrink-0" />
+                  <span className="font-body text-sm text-foreground">
+                    {item}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </div>
