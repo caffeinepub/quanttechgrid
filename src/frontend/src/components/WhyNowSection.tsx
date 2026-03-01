@@ -38,13 +38,13 @@ export default function WhyNowSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          {/* Left column — label + heading + body */}
+          {/* Left column — all intro copy + data gap cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
+            className="lg:col-span-7"
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
@@ -68,30 +68,47 @@ export default function WhyNowSection() {
               standardized, or made defensible.
             </p>
 
-            <p className="font-body text-base text-muted-foreground leading-relaxed">
+            <p className="font-body text-base text-muted-foreground leading-relaxed mb-8">
               Cold storage and reefer infrastructure are expanding rapidly.
               Sensors are everywhere. Data is being collected continuously.
             </p>
+
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
+              Yet most environmental data today is:
+            </p>
+
+            <ul className="space-y-3 pl-0 list-none">
+              {dataGaps.map((gap) => (
+                <li
+                  key={gap.label}
+                  className="font-body text-base text-muted-foreground leading-relaxed"
+                >
+                  <span className="text-foreground font-medium">
+                    {gap.label}
+                  </span>
+                  {" — "}
+                  {gap.detail}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
-          {/* Right column — data gap cards + result boxes */}
+          {/* Right column — The Result in Positioning card style */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-7"
+            className="lg:col-span-5"
           >
-            {/* Intro line */}
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
-              Yet most environmental data today is:
-            </p>
+            <div className="font-mono-data text-xs text-primary tracking-widest uppercase mb-6">
+              The Result
+            </div>
 
-            {/* Data gap cards — Positioning card style */}
-            <div className="grid gap-6 mb-10">
-              {dataGaps.map((gap, i) => (
+            <div className="grid gap-6">
+              {consequences.map((item, i) => (
                 <motion.div
-                  key={gap.label}
+                  key={item}
                   initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -99,40 +116,13 @@ export default function WhyNowSection() {
                   className="bg-card border border-border/50 p-6 flex gap-6 items-start hover:border-border hover:bg-secondary/30 transition-all duration-200"
                 >
                   <div className="shrink-0">
-                    <div className="w-px h-full min-h-[40px] bg-primary/40" />
+                    <div className="w-px h-full min-h-[40px] bg-destructive/40" />
                   </div>
                   <div>
-                    <div className="font-mono-data text-xs text-primary tracking-widest uppercase mb-2">
-                      {gap.label}
-                    </div>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                      — {gap.detail}
+                    <p className="font-body text-sm text-foreground leading-relaxed">
+                      {item}
                     </p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* The Result label */}
-            <div className="font-mono-data text-xs text-primary tracking-widest uppercase mb-4">
-              The Result
-            </div>
-
-            {/* Consequence boxes */}
-            <div className="grid grid-cols-1 gap-3">
-              {consequences.map((item, i) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.25 + i * 0.07 }}
-                  className="flex items-center gap-3 rounded-lg border border-destructive/25 bg-destructive/5 px-4 py-3"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-destructive/70 shrink-0" />
-                  <span className="font-body text-sm text-foreground leading-snug">
-                    {item}
-                  </span>
                 </motion.div>
               ))}
             </div>

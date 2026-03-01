@@ -5,26 +5,26 @@ const cards = [
   {
     icon: Thermometer,
     number: "01",
-    title: "Environmental Exposure Modeling",
-    body: "Transforms temperature, humidity, and time data into cumulative exposure impact using internationally referenced shelf-life science.",
+    title: "Environmental Exposure Analysis",
+    body: "Transforms temperature, humidity, and time data into cumulative degradation insights using internationally recognized shelf-life science.",
   },
   {
     icon: FileText,
     number: "02",
-    title: "Insurance-Ready Impact Quantification",
-    body: "Converts environmental exposure into structured commercial impact summaries for claim defensibility and underwriting clarity.",
+    title: "Defensible Impact Documentation",
+    body: "Converts exposure data into structured commercial impact records — producing tamper-evident, audit-ready summaries that support claim defensibility and underwriting clarity.",
   },
   {
     icon: AlertTriangle,
     number: "03",
-    title: "Structured Risk Alerts",
-    body: "Identifies cumulative risk conditions early — enabling operational intervention before irreversible degradation occurs.",
+    title: "Proactive Risk Alerts",
+    body: "Detects emerging shelf-life risks early, enabling timely operational interventions to prevent irreversible product degradation.",
   },
   {
     icon: Shield,
     number: "04",
-    title: "Defensible Evidence Documentation",
-    body: "Generates tamper-evident, audit-ready exposure summaries aligned with exporter, buyer, and insurer documentation standards.",
+    title: "Compliance-Ready Evidence Generation",
+    body: "Delivers standardized, regulator- and insurer-aligned documentation that ensures transparency and trust across exporters, buyers, and insurers.",
   },
 ];
 
