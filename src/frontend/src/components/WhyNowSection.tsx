@@ -1,9 +1,18 @@
 import { motion } from "motion/react";
 
 const dataGaps = [
-  "Monitored — but not interpreted",
-  "Recorded — but not standardized",
-  "Available — but not legally or commercially defensible",
+  {
+    label: "Monitored",
+    detail: "but not interpreted",
+  },
+  {
+    label: "Recorded",
+    detail: "but not standardized",
+  },
+  {
+    label: "Available",
+    detail: "but not legally or commercially defensible",
+  },
 ];
 
 const consequences = [
@@ -17,114 +26,99 @@ const consequences = [
 export default function WhyNowSection() {
   return (
     <section className="relative py-28 lg:py-40 border-b border-border overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.03]"
-          style={{
-            background:
-              "radial-gradient(circle at center, oklch(0.72 0.165 65), transparent 70%)",
-          }}
-        />
-      </div>
+      {/* Background — subtle diagonal pattern (matches Positioning section) */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(-45deg, oklch(0.72 0.165 65) 0px, oklch(0.72 0.165 65) 1px, transparent 1px, transparent 40px)",
+        }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section label */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-6"
-        >
-          <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
-            The Accountability Gap
-          </span>
-          <div className="h-px bg-border w-[60px]" />
-        </motion.div>
-
-        {/* Main heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="mb-10"
-        >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-foreground mb-4 leading-tight">
-            India's Cold Chain Is Expanding — Accountability Has Not.
-          </h2>
-          <p className="font-body text-base text-primary font-medium">
-            QuantTechGrid builds the standardized exposure layer to close this
-            gap.
-          </p>
-        </motion.div>
-
-        {/* Body copy */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-body text-base text-muted-foreground leading-relaxed max-w-3xl mb-6"
-        >
-          India loses a significant share of perishable produce — not because
-          data doesn't exist, but because it isn't interpreted, standardized, or
-          made defensible.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.13 }}
-          className="font-body text-base text-muted-foreground leading-relaxed max-w-3xl mb-16"
-        >
-          Cold storage and reefer infrastructure are expanding rapidly. Sensors
-          are everywhere. Data is being collected continuously.
-        </motion.p>
-
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          {/* Left — data gap */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          {/* Left column — label + heading + body */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="border-l-2 border-primary/30 pl-8 py-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5"
           >
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-              Yet most environmental data today is:
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-mono-data text-primary tracking-widest uppercase">
+                The Accountability Gap
+              </span>
+              <div className="flex-1 h-px bg-border max-w-[60px]" />
+            </div>
+
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-foreground mb-5 leading-tight">
+              India's Cold Chain Is Expanding — Accountability Has Not.
+            </h2>
+
+            <p className="font-body text-base text-primary font-medium mb-8">
+              QuantTechGrid builds the standardized exposure layer to close this
+              gap.
             </p>
-            <ul className="space-y-4">
-              {dataGaps.map((item, i) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                  <span className="font-body text-sm text-foreground leading-relaxed">
-                    {item}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
+
+            <p className="font-body text-base text-muted-foreground leading-relaxed mb-5">
+              India loses a significant share of perishable produce — not
+              because data doesn't exist, but because it isn't interpreted,
+              standardized, or made defensible.
+            </p>
+
+            <p className="font-body text-base text-muted-foreground leading-relaxed">
+              Cold storage and reefer infrastructure are expanding rapidly.
+              Sensors are everywhere. Data is being collected continuously.
+            </p>
           </motion.div>
 
-          {/* Right — consequences */}
+          {/* Right column — data gap cards + result boxes */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:col-span-7"
           >
-            <p className="font-body text-sm font-semibold text-foreground leading-relaxed mb-5">
-              The Result
+            {/* Intro line */}
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
+              Yet most environmental data today is:
             </p>
+
+            {/* Data gap cards — Positioning card style */}
+            <div className="grid gap-6 mb-10">
+              {dataGaps.map((gap, i) => (
+                <motion.div
+                  key={gap.label}
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                  className="bg-card border border-border/50 p-6 flex gap-6 items-start hover:border-border hover:bg-secondary/30 transition-all duration-200"
+                >
+                  <div className="shrink-0">
+                    <div className="w-px h-full min-h-[40px] bg-primary/40" />
+                  </div>
+                  <div>
+                    <div className="font-mono-data text-xs text-primary tracking-widest uppercase mb-2">
+                      {gap.label}
+                    </div>
+                    <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                      — {gap.detail}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* The Result label */}
+            <div className="font-mono-data text-xs text-primary tracking-widest uppercase mb-4">
+              The Result
+            </div>
+
+            {/* Consequence boxes */}
             <div className="grid grid-cols-1 gap-3">
               {consequences.map((item, i) => (
                 <motion.div
