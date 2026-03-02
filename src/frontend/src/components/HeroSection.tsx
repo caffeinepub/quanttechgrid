@@ -69,9 +69,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg sm:text-xl text-muted-foreground font-body leading-relaxed mb-10 max-w-2xl"
           >
-            We transform environmental exposure data into structured, defensible
-            intelligence — helping reduce post-harvest losses, strengthen export
-            confidence, and improve supply-chain accountability.
+            Reducing post-harvest losses and strengthening export confidence by
+            transforming environmental exposure data into structured, defensible
+            intelligence.
           </motion.p>
 
           {/* Supporting Line */}

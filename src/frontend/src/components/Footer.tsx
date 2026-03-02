@@ -29,14 +29,6 @@ export default function Footer() {
               <br />
               Standardizing Cold-Chain Accountability.
             </p>
-
-            {/* DPIIT badge */}
-            <div className="mt-6 inline-flex items-center gap-2 border border-border px-3 py-1.5">
-              <div className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
-              <span className="font-mono-data text-xs text-muted-foreground tracking-wide">
-                DPIIT-Recognized Cold-Chain Risk Intelligence Platform
-              </span>
-            </div>
           </div>
 
           {/* Navigation links */}
